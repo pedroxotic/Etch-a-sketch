@@ -12,26 +12,26 @@ for (let index = 0; index < 16; index++) {
 
 }
 
-const squares=document.querySelectorAll('.square');
-
+function squaresHoverEvent (){
+ const squares=document.querySelectorAll('.square');
 squares.forEach((square)=>{
-
     square.addEventListener('mouseover', ()=>{
         square.style.backgroundColor='black';
+     });
 
-    })
-});
-
+})
+}
+squaresHoverEvent ()
 
 const button=document.querySelector('button');
 
 button.addEventListener('click', ()=>{
-    var gridSize=parseInt(prompt('enter the desired grid size'));
+    let gridSize=parseInt(prompt('enter the desired grid size'));
     console.log(gridSize);
     
     if (gridSize<=100) {
-        const rows = document.querySelectorAll('.row');
         //delete the 16*16 grid
+        const rows = document.querySelectorAll('.row');
         rows.forEach(row => {
         container.removeChild(row);
       }); 
@@ -46,17 +46,21 @@ button.addEventListener('click', ()=>{
         row.appendChild(square);
         }
     }
-    const squares=document.querySelectorAll('.square');
-    squares.forEach((square)=>{
-        square.addEventListener('mouseover', ()=>{
-            square.style.backgroundColor='black';
-    
-        })
-    });
+    squaresHoverEvent ()
 }
 else{
     alert('the grid cant be more than 100*100 try again');
 }
 
 });
+
+//clear the grid button
+const resetButton = document.querySelector('#reset')
+resetButton.addEventListener('click',()=>{
+const squares2 = document.querySelectorAll('.square');
+squares2.forEach(square =>{
+    square.style.backgroundColor='white';
+}); 
+});
+
 
