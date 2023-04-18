@@ -11,9 +11,9 @@ for (let index = 0; index < 16; index++) {
     }
 
 }
+var squares=document.querySelectorAll('.square');
 
 function squaresHoverEvent (){
- const squares=document.querySelectorAll('.square');
 squares.forEach((square)=>{
     square.addEventListener('mouseover', ()=>{
         square.style.backgroundColor='black';
@@ -22,8 +22,8 @@ squares.forEach((square)=>{
 })
 }
 squaresHoverEvent ()
-
-const button=document.querySelector('button');
+// 
+const button=document.querySelector('#changeGridSize');
 
 button.addEventListener('click', ()=>{
     let gridSize=parseInt(prompt('enter the desired grid size'));
@@ -46,6 +46,7 @@ button.addEventListener('click', ()=>{
         row.appendChild(square);
         }
     }
+    squares=document.querySelectorAll('.square');
     squaresHoverEvent ()
 }
 else{
@@ -57,10 +58,11 @@ else{
 //clear the grid button
 const resetButton = document.querySelector('#reset')
 resetButton.addEventListener('click',()=>{
-const squares2 = document.querySelectorAll('.square');
-squares2.forEach(square =>{
+squares.forEach(square =>{
     square.style.backgroundColor='white';
 }); 
 });
+squaresHoverEvent ()
+
 
 
